@@ -8,7 +8,11 @@ class TrainingSheetScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello'),
+        title: Text(
+          'My Fitness Buddy',
+          style: TextStyle(fontFamily: 'ShadowsIntoLightTwo', fontSize: 38),
+        ),
+        centerTitle: true,
       ),
       body: GridView(
         children: DUMMY_TRAINING_SHEET.map((t) {
