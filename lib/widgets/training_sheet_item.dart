@@ -4,7 +4,7 @@ import '../models/training_sheet.dart';
 import '../screens/training_sheet_detail_screen.dart';
 
 class TrainingSheetItem extends StatelessWidget {
-  final TrainingSheet trainingSheet;
+  final TrainingSheetModel trainingSheet;
 
   const TrainingSheetItem({Key key, this.trainingSheet}) : super(key: key);
 
