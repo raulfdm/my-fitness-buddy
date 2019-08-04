@@ -10,7 +10,22 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          primarySwatch: Colors.pink, accentColor: Colors.yellowAccent),
+        primarySwatch: Colors.pink,
+        accentColor: Colors.yellowAccent,
+        fontFamily: 'Montserrat',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              body1: TextStyle(
+                color: Color.fromRGBO(17, 17, 17, 1),
+              ),
+              body2: TextStyle(
+                color: Color.fromRGBO(17, 17, 17, 1),
+              ),
+              title: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+      ),
       // home: MyHomePage(title: 'My Fitness Buddy'),
       home: TrainingSheetScreen(),
     );

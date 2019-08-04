@@ -11,7 +11,10 @@ class TrainingSheetItem extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Text(trainingSheet.alias),
+          Text(
+            trainingSheet.alias,
+            style: Theme.of(context).textTheme.title,
+          ),
           Text(trainingSheet.muscularGroup),
         ],
       ),
