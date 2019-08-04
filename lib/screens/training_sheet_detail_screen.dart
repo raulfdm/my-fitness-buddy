@@ -5,6 +5,8 @@ import '../models/training_sheet.dart';
 import '../widgets/exercise.dart';
 
 class TrainingSheetDetailScreen extends StatelessWidget {
+  static String route = '/training-sheet';
+
   const TrainingSheetDetailScreen();
 
   @override

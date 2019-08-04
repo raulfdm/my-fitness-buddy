@@ -6,6 +6,8 @@ import '../widgets/scaffold_app.dart';
 import '../dummy_data.dart';
 
 class TrainingSheetsScreen extends StatelessWidget {
+  static String route = '/';
+
   @override
   Widget build(BuildContext context) {
     return ScaffoldApp(

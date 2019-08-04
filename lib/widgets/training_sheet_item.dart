@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import '../screens/training_sheet_detail_screen.dart';
 
 import '../models/training_sheet.dart';
-import '../screens/training_sheet_detail_screen.dart';
 
 class TrainingSheetItem extends StatelessWidget {
   final TrainingSheetModel trainingSheet;
@@ -10,7 +10,7 @@ class TrainingSheetItem extends StatelessWidget {
 
   void _selectTrainingSheet(BuildContext context) {
     Navigator.of(context).pushNamed(
-      'training-sheet',
+      TrainingSheetDetailScreen.route,
       arguments: {
         'trainingSheet': trainingSheet,
       },
@@ -19,6 +19,7 @@ class TrainingSheetItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /* Gesture + click styles Widget */
     return InkWell(
       onTap: () => _selectTrainingSheet(context),
       borderRadius: BorderRadius.circular(8),
