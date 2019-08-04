@@ -15,6 +15,7 @@ class TrainingSheetScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: GridView(
+        padding: EdgeInsets.all(20),
         children: DUMMY_TRAINING_SHEET.map((t) {
           return TrainingSheetItem(
             trainingSheet: t,
