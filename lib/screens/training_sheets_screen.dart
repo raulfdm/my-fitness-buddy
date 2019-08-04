@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:my_fitness_buddy_flutter/widgets/training_sheet_item.dart';
+
+import '../widgets/training_sheet_item.dart';
+import '../widgets/scaffold_app.dart';
 
 import '../dummy_data.dart';
 
-class TrainingSheetScreen extends StatelessWidget {
+class TrainingSheetsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'My Fitness Buddy',
-          style: TextStyle(fontFamily: 'ShadowsIntoLightTwo', fontSize: 38),
-        ),
-        centerTitle: true,
-      ),
+    return ScaffoldApp(
       body: GridView(
         padding: EdgeInsets.all(20),
         children: DUMMY_TRAINING_SHEET.map((t) {

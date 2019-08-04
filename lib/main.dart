@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './screens/training_sheet_screen.dart';
+import './screens/training_sheets_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
             ),
       ),
       // home: MyHomePage(title: 'My Fitness Buddy'),
-      home: TrainingSheetScreen(),
+      home: TrainingSheetsScreen(),
     );
   }
 }
