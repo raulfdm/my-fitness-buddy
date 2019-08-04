@@ -27,8 +27,6 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      // home: MyHomePage(title: 'My Fitness Buddy'),
-      home: TrainingSheetsScreen(),
       routes: ROUTES,
     );
   }
