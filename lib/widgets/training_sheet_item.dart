@@ -10,6 +10,7 @@ class TrainingSheetItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
             trainingSheet.alias,
