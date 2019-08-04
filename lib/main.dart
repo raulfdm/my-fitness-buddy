@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './screens/training_sheets_screen.dart';
+import './config/routes.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       ),
       // home: MyHomePage(title: 'My Fitness Buddy'),
       home: TrainingSheetsScreen(),
+      routes: ROUTES,
     );
   }
 }
