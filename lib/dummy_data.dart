@@ -1,6 +1,9 @@
 import './models/training_sheet.dart';
 import './models/exercise.dart';
 
+import './models/diet_sheet.dart';
+import './models/food_option.dart';
+
 const DUMMY_TRAINING_SHEET = const [
   TrainingSheetModel(
     alias: 'Treino A',
@@ -34,6 +37,25 @@ const DUMMY_TRAINING_SHEET = const [
         advancedTechnique: '',
         repetitions: 8,
         series: 5,
+      ),
+    ],
+  ),
+];
+
+const DUMMY_DIET_SHEET = const [
+  DietSheetModel(
+    id: 'd1',
+    time: '06:30',
+    title: 'Café da Manhã',
+    foodOptions: [
+      FoodOption(
+        id: 'fo1',
+        foodList: [
+          '1 fruta (da sua preferência --- banana é uma boaopção aqui)',
+          '15g farelo de aveia',
+          '2 ovos',
+        ],
+        observation: 'Se for pré-treino (30 a 60min antes)',
       ),
     ],
   ),
