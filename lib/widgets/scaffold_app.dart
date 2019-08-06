@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class ScaffoldApp extends StatelessWidget {
   final Widget body;
   final String title;
+  final Widget navigation;
 
-  const ScaffoldApp({Key key, @required this.body, title})
+  const ScaffoldApp({Key key, @required this.body, title, this.navigation})
       : title = title ?? 'My Fitness Buddy',
         super(key: key);
 
@@ -19,6 +20,7 @@ class ScaffoldApp extends StatelessWidget {
         centerTitle: true,
       ),
       body: this.body,
+      bottomNavigationBar: navigation,
     );
   }
 }
