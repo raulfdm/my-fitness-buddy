@@ -57,6 +57,14 @@ const DUMMY_DIET_SHEET = const [
         ],
         observation: 'Se for pré-treino (30 a 60min antes)',
       ),
+      FoodOption(
+        id: 'fo2',
+        foodList: [
+          '2 fatias de pão 100% integral',
+          '2 ovos',
+        ],
+        observation: 'Se for pré-treino (30 a 60min antes)',
+      ),
     ],
   ),
 ];
