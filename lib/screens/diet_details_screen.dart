@@ -2,8 +2,40 @@ import 'package:flutter/material.dart';
 
 import '../models/diet_sheet.dart';
 import '../widgets/scaffold_app.dart';
+import '../widgets/food_option.dart';
 
-/* TODO: break this into small components in the name of jesus */
+class SuggestedTime extends StatelessWidget {
+  final String time;
+
+  const SuggestedTime({Key key, this.time}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: Row(
+        children: <Widget>[
+          Text(
+            'Horário Sugerido:',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 10),
+            child: Text(
+              time,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class DietDetailsScreen extends StatelessWidget {
   static String route = '/diet-details';
 
@@ -16,30 +48,11 @@ class DietDetailsScreen extends StatelessWidget {
 
     return ScaffoldApp(
       title: dietSheet.title,
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(10),
-              child: Row(
-                children: <Widget>[
-                  Text(
-                    'Horário Sugerido:',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 10),
-                    child: Text(
-                      dietSheet.time,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            SuggestedTime(
+              time: dietSheet.time,
             ),
             Column(
               children: dietSheet.foodOptions
@@ -47,44 +60,9 @@ class DietDetailsScreen extends StatelessWidget {
                   .map((index, foodOption) {
                     return MapEntry(
                       index,
-                      Container(
-                        padding: EdgeInsets.all(16),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: <Widget>[
-                                Container(
-                                  margin: EdgeInsets.only(right: 12),
-                                  child: Text(
-                                    'Opção ${index + 1}',
-                                    style: TextStyle(fontSize: 20),
-                                  ),
-                                ),
-                                Text('Se for pré-treino (30 a 60min antes)'),
-                              ],
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  ...foodOption.foodList.map((food) {
-                                    return Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(food),
-                                        Divider(),
-                                      ],
-                                    );
-                                  })
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                      FoodOption(
+                        foodOption: foodOption,
+                        optionNumber: index + 1,
                       ),
                     );
                   })
