@@ -1,9 +1,9 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 import '../widgets/training_sheet_item.dart';
 import '../models/training_sheet.dart';
+import '../services/training_sheet.dart';
+import '../widgets/loading_data.dart';
 
 class TrainingSheetsScreen extends StatefulWidget {
   static String route = '/';
@@ -14,6 +14,7 @@ class TrainingSheetsScreen extends StatefulWidget {
 
 class _TrainingSheetsScreenState extends State<TrainingSheetsScreen> {
   var _isInit = false;
+  var _isLoading = true;
   List<TrainingSheetModel> _trainingSheet = [];
 
   @override
@@ -21,20 +22,13 @@ class _TrainingSheetsScreenState extends State<TrainingSheetsScreen> {
     if (!_isInit) {
       setState(() {
         _isInit = true;
+        _isLoading = true;
       });
 
-      http
-          .get('https://my-fitness-buddy-server.herokuapp.com/routine')
-          .then((response) {
-        final data = json.decode(response.body) as Map<String, dynamic>;
-        List<TrainingSheetModel> nextList = [];
-
-        data['data'].forEach((routine) {
-          nextList.add(TrainingSheetModel.fromJson(routine));
-        });
-
+      TrainingSheetService.trainingSheet.then((nextList) {
         setState(() {
           _trainingSheet = nextList;
+          _isLoading = false;
         });
       });
     }
@@ -43,19 +37,21 @@ class _TrainingSheetsScreenState extends State<TrainingSheetsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GridView(
-      padding: EdgeInsets.all(20),
-      children: _trainingSheet.map((t) {
-        return TrainingSheetItem(
-          trainingSheet: t,
-        );
-      }).toList(),
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 200,
-        childAspectRatio: 3 / 2,
-        crossAxisSpacing: 20,
-        mainAxisSpacing: 20,
-      ),
-    );
+    return _isLoading
+        ? LoadingData()
+        : GridView(
+            padding: EdgeInsets.all(20),
+            children: _trainingSheet.map((t) {
+              return TrainingSheetItem(
+                trainingSheet: t,
+              );
+            }).toList(),
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200,
+              childAspectRatio: 3 / 2,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20,
+            ),
+          );
   }
 }
