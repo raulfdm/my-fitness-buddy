@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../screens/training_sheet_detail_screen.dart';
 
+import '../screens/training_sheet_detail_screen.dart';
 import '../models/training_sheet.dart';
 
 class TrainingSheetItem extends StatelessWidget {
@@ -21,18 +21,27 @@ class TrainingSheetItem extends StatelessWidget {
   Widget build(BuildContext context) {
     /* Gesture + click styles Widget */
     return InkWell(
-      onTap: () => _selectTrainingSheet(context),
+      onTap: () => {
+        if (trainingSheet.exercises.isNotEmpty) {_selectTrainingSheet(context)}
+      },
       borderRadius: BorderRadius.circular(8),
       splashColor: Theme.of(context).primaryColorDark,
       child: Card(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              trainingSheet.alias,
-              style: Theme.of(context).textTheme.title,
+            Flexible(
+              child: Text(
+                trainingSheet.alias,
+                style: Theme.of(context).textTheme.title,
+              ),
             ),
-            Text(trainingSheet.muscularGroup),
+            Flexible(
+              child: Text(
+                trainingSheet.muscularGroup,
+                textAlign: TextAlign.center,
+              ),
+            ),
           ],
         ),
       ),

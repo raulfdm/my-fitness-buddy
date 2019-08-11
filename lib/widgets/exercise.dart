@@ -28,8 +28,15 @@ class Exercise extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(exercise.name),
-                Text('${exercise.series}x${exercise.repetitions}'),
+                Flexible(
+                  flex: 3,
+                  child: Text(exercise.name),
+                ),
+                Flexible(
+                  child: Text(
+                    '${exercise.series}x${exercise.repetitions}',
+                  ),
+                ),
               ],
             ),
           ),
@@ -37,6 +44,10 @@ class Exercise extends StatelessWidget {
             Text(
               exercise.advancedTechnique,
               textAlign: TextAlign.start,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 10,
+              ),
             )
         ],
       ),
