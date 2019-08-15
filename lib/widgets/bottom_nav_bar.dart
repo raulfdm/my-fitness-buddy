@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './ui/my_fitness_buddy_icons.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -20,11 +21,11 @@ class BottomNavBar extends StatelessWidget {
       onTap: onTabChange,
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings),
+          icon: Icon(MyFitnessBuddy.gym),
           title: Text('Training'),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.switch_camera),
+          icon: Icon(MyFitnessBuddy.food),
           title: Text('Diet'),
         ),
       ],

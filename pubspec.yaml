@@ -66,5 +66,8 @@ flutter:
     - family: ShadowsIntoLightTwo
       fonts:
         - asset: assets/fonts/Shadows_Into_Light_Two/ShadowsIntoLightTwo-Regular.ttf
+    - family:  MyFitnessBuddy
+      fonts:
+        - asset: assets/fonts/MyFitnessBuddy.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
