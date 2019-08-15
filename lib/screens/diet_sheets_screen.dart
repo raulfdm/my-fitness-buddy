@@ -24,7 +24,6 @@ class _DietSheetsScreenState extends State<DietSheetsScreen> {
       });
 
       DietSheetService.dietSheet.then((nextList) {
-        print(nextList);
         setState(() {
           _meals = nextList;
           _isLoading = false;
