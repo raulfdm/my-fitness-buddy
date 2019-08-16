@@ -25,8 +25,12 @@ class BottomNavBar extends StatelessWidget {
           title: Text('Training'),
         ),
         BottomNavigationBarItem(
-          icon: Icon(MyFitnessBuddy.food),
+          icon: Icon(MyFitnessBuddy.meal),
           title: Text('Diet'),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(MyFitnessBuddy.journal),
+          title: Text('Journal'),
         ),
       ],
     );

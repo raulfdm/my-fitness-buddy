@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './journal_screen.dart';
 import './diet_sheets_screen.dart';
 import './training_sheets_screen.dart';
 import '../widgets/scaffold_app.dart';
@@ -16,6 +17,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _widgetsToRender = [
     TrainingSheetsScreen(),
     DietSheetsScreen(),
+    JournalScreen()
   ];
 
   int _currentIndex = 0;
