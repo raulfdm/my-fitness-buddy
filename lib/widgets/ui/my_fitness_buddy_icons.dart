@@ -21,5 +21,6 @@ class MyFitnessBuddy {
   static const _kFontFam = 'MyFitnessBuddy';
 
   static const IconData gym = const IconData(0xe800, fontFamily: _kFontFam);
-  static const IconData food = const IconData(0xe801, fontFamily: _kFontFam);
+  static const IconData meal = const IconData(0xe801, fontFamily: _kFontFam);
+  static const IconData journal = const IconData(0xe803, fontFamily: _kFontFam);
 }
