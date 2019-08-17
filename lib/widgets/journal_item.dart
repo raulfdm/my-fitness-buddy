@@ -10,22 +10,25 @@ class JournalItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+        Text(
+          DateFormat('E, d MMM').format(journalItem.date),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        SizedBox(
+          height: 8,
+        ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Expanded(
-              child: Text(
-                DateFormat('E, d MMM').format(journalItem.date),
-              ),
-            ),
-            Expanded(
-              // flex: 1,
-              child: Text(journalItem.trainingName),
-            ),
-            Expanded(
-              flex: 2,
-              child: Text(journalItem.groupName, textAlign: TextAlign.end,),
+            Text(journalItem.trainingName),
+            Text(' - '),
+            Text(
+              journalItem.groupName,
+              textAlign: TextAlign.end,
             ),
           ],
         ),
