@@ -5,6 +5,7 @@ import './diet_sheets_screen.dart';
 import './training_sheets_screen.dart';
 import '../widgets/scaffold_app.dart';
 import '../widgets/bottom_nav_bar.dart';
+import '../widgets/new_journal_fab.dart';
 
 class MainScreen extends StatefulWidget {
   static String route = '/';
@@ -36,6 +37,8 @@ class _MainScreenState extends State<MainScreen> {
         currentIndex: _currentIndex,
         onTabChange: _onTabChange,
       ),
+      /* TODO: is this really a good pratice? */
+      fab: _currentIndex == 2 ? NewJournalFAB() : Text(''),
     );
   }
 }

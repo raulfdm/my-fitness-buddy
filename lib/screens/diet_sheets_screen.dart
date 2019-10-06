@@ -5,6 +5,7 @@ import '../widgets/diet_sheet_item.dart';
 import '../widgets/loading_data.dart';
 import '../services/diet_sheet.dart';
 
+/* TODO: Refactor to use FutureBuilder instead */
 class DietSheetsScreen extends StatefulWidget {
   @override
   _DietSheetsScreenState createState() => _DietSheetsScreenState();

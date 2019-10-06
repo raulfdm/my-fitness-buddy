@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/journal.dart';
 import '../widgets/journal_item.dart';
+import '../widgets/loading_data.dart';
 import '../services/journal.dart';
 
 class JournalScreen extends StatefulWidget {
@@ -34,31 +35,35 @@ class _JournalScreenState extends State<JournalScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              child: Text(
-                'Journal',
-                style: Theme.of(context).textTheme.title,
+    return _isLoading
+        ? LoadingData()
+        : Container(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 20),
+                    child: Text(
+                      'Journal',
+                      style: Theme.of(context).textTheme.title,
+                    ),
+                  ),
+                  SingleChildScrollView(
+                    child: Container(
+                      height: MediaQuery.of(context).size.height,
+                      child: ListView.builder(
+                        itemCount: _reports.length,
+                        itemBuilder: (ctx, index) =>
+                            JournalItem(_reports[index]),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            SingleChildScrollView(
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                child: ListView.builder(
-                  itemCount: _reports.length,
-                  itemBuilder: (ctx, index) => JournalItem(_reports[index]),
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
+          );
   }
 }
