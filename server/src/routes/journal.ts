@@ -43,15 +43,19 @@ module.exports = (app: Application) => {
     And improve the quality of this validation
     */
     if (!training_id) {
-      res.sendStatus(422).json({
-        training_id: 'is required',
-      });
+      res
+        .json({
+          training_id: 'is required',
+        })
+        .status(422);
     }
 
     if (!date) {
-      res.sendStatus(422).json({
-        date: 'is required',
-      });
+      res
+        .json({
+          date: 'is required',
+        })
+        .status(422);
     }
 
     Database.connect();
